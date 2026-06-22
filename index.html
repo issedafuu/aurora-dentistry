@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Стоматология Aurora в Екатеринбурге. Современное лечение зубов, профессиональная чистка AirFlow, отбеливание, лечение кариеса, детский приём. Запись онлайн без ожидания.">
+    <meta name="keywords"
+        content="стоматология Екатеринбург, AirFlow, отбеливание зубов, лечение кариеса, детский стоматолог, Aurora">
+    <meta name="author" content="Aurora Dentistry">
+    <meta property="og:title" content="Стоматология Aurora | Екатеринбург">
+    <meta property="og:description" content="Современная стоматология с заботой о пациенте. Без боли и очередей.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./images/hero.png">
+    <title>Стоматология Aurora | Екатеринбург</title>
+    <link rel="shortcut icon" href="./images/site-aurora-icon.ico" type="image/x-icon">
+    <link rel="preload" href="./images/hero.png" as="image">
+    <link rel="stylesheet" href="./styles/globals.css">
+    <link rel="stylesheet" href="./styles/variables.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="./styles/animations.css">
+</head>
+
+<body class="page">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader__content">
+            <div class="preloader__logo">Aurora</div>
+            <div class="preloader__spinner"></div>
+        </div>
+    </div>
+    <div class="intro">
+        <div class="intro__bg">
+            <div class="intro__bg-blob intro__bg-blob--1"></div>
+            <div class="intro__bg-blob intro__bg-blob--2"></div>
+            <div class="intro__bg-blob intro__bg-blob--3"></div>
+            <div class="intro__bg-blob intro__bg-blob--4"></div>
+            <div class="intro__bg-blob intro__bg-blob--5"></div>
+        </div>
+        <header class="header">
+            <h1 class="header__logo">Aurora</h1>
+            <nav class="header__nav" id="mainNav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-list-item"><a href="#services">Услуги</a></li>
+                    <li class="header__nav-list-item"><a href="#testimonials">Отзывы</a></li>
+                    <li class="header__nav-list-item"><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="header__btn btn_def" id="openModalBtn">Записаться</button>
+            <button class="header__burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+        <div class="hero__container">
+            <section class="hero">
+                <div class="hero__info-container">
+                    <h1 class="hero__main-text">
+                        Твоя улыбка,<br>которая <span class="hero__accent">сияет</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        Современная стоматология в Екатеринбурге.<br>
+                        Без боли, без очередей, с заботой о каждом пациенте.
+                    </p>
+                    <div class="hero__buttons">
+                        <button class="hero__buttons-appointment btn_def shine-btn" type="button" id="heroModalBtn">
+                            Записаться онлайн
+                        </button>
+                        <button class="hero__buttons-cost ghost-btn" type="button" id="priceBtn">Узнать
+                            стоимость</button>
+                    </div>
+                </div>
+                <div class="hero__image-wrapper">
+                    <img src="./images/hero.png" alt="Девушка с белоснежной улыбкой в кресле стоматолога">
+                </div>
+            </section>
+        </div>
+    </div>
+    <main class="main">
+        <section id="services" class="services">
+            <div class="section__name-container">
+                <h2 class="section__name">Наши услуги</h2>
+                <div class="section__name-underline"></div>
+            </div>
+            <div class="services__cards">
+                <div class="card services__card-1">
+                    <img src="./images/firstcard.svg" alt="Иконка чистки AirFlow">
+                    <h3 class="card__name">Профессиональная <br> чистка AirFlow</h3>
+                    <p class="card__title">
+                        Мягкая и эффективная чистка зубов от налёта и пигментации. Полировка эмали, свежесть и блеск уже
+                        после первого визита.
+                    </p>
+                </div>
+
+                <div class="card services__card-2">
+                    <img src="./images/secondcard.svg" alt="Иконка отбеливания">
+                    <h3 class="card__name">Безопасное отбеливание</h3>
+                    <p class="card__title">Zoom и Beyond — сияющая улыбка без чувствительности и вреда для эмали</p>
+                </div>
+
+                <div class="card services__card-3">
+                    <img src="./images/thirdcard.svg" alt="Иконка лечения кариеса">
+                    <h3 class="card__name">Лечение кариеса</h3>
+                    <p class="card__title">Лечение за одно посещение с анестезией последнего поколения. Сохраняем живые
+                        зубы.</p>
+                </div>
+
+                <div class="card services__card-4">
+                    <img src="./images/kids.svg" alt="Иконка детского приёма">
+                    <h3 class="card__name">Детский прием</h3>
+                    <p class="card__title">Индивидуальный подход, игровая форма лечения и полная забота о маленьких
+                        пациентах</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="why">
+            <div class="section__name-container">
+                <h2 class="section__name">Почему Aurora?</h2>
+                <div class="section__name-underline"></div>
+            </div>
+            <div class="why__content-container">
+                <div class="why__images-container">
+                    <div class="why__first-image-container why-image">
+                        <img src="./images/photo-aurora1.png" alt="Фото клиники" loading="lazy">
+                    </div>
+                    <div class="why__second-image-container why-image">
+                        <img src="./images/photo-aurora2.png" alt="Фото оборудования" loading="lazy">
+                    </div>
+                    <div class="why__third-image-container why-image">
+                        <img src="./images/photo-aurora3.png" alt="Фото приёма" loading="lazy">
+                    </div>
+                </div>
+                <div class="why__text">
+                    <p class="why__text-content">3D диагностика без боли</p>
+                    <p class="why__text-content">Лечение без страха и стресса</p>
+                    <p class="why__text-content">Гарантия на все виды работ</p>
+                    <p class="why__text-content">Индивидуальный план улыбки</p>
+                    <p class="why__text-content">Прозрачные цены без скрытых комиссий</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="section__name-container">
+                <h2 class="section__name">Отзывы</h2>
+                <div class="section__name-underline"></div>
+            </div>
+            <div class="testimonials__grid">
+                <article class="testimonial-card">
+                    <div class="testimonial-card__stars" aria-label="5 из 5 звёзд">★★★★★</div>
+                    <p class="testimonial-card__text">
+                        Впервые не боялась идти к стоматологу. Доктор Елена всё подробно объяснила, лечение прошло
+                        совершенно без боли. Теперь только в Аврору!
+                    </p>
+                    <div class="testimonial-card__author">
+                        <span class="testimonial-card__name">Анна К.</span>
+                        <span class="testimonial-card__date">24.05.2026</span>
+                    </div>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-card__stars" aria-label="5 из 5 звёзд">★★★★★</div>
+                    <p class="testimonial-card__text">
+                        Делал профессиональную чистку AirFlow. Результат — как после отбеливания, налёт ушел полностью.
+                        Очень приятная атмосфера, современное оборудование.
+                    </p>
+                    <div class="testimonial-card__author">
+                        <span class="testimonial-card__name">Игорь М.</span>
+                        <span class="testimonial-card__date">18.05.2026</span>
+                    </div>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-card__stars" aria-label="5 из 5 звёзд">★★★★★</div>
+                    <p class="testimonial-card__text">
+                        Приводила дочку (4 года) на осмотр. Врач нашла подход с первой минуты, ребенок сидел спокойно и
+                        даже смеялся. Спасибо за заботу и терпение!
+                    </p>
+                    <div class="testimonial-card__author">
+                        <span class="testimonial-card__name">Мария С.</span>
+                        <span class="testimonial-card__date">10.05.2026</span>
+                    </div>
+                </article>
+                <article class="testimonial-card">
+                    <div class="testimonial-card__stars" aria-label="5 из 5 звёзд">★★★★★</div>
+                    <p class="testimonial-card__text">
+                        Прозрачные цены — это правда. Никаких навязанных услуг, всё по делу. Вылечили сложный кариес за
+                        одно посещение, дали гарантию. Рекомендую.
+                    </p>
+                    <div class="testimonial-card__author">
+                        <span class="testimonial-card__name">Дмитрий В.</span>
+                        <span class="testimonial-card__date">02.05.2026</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contacts">
+        <div class="footer__inner">
+            <div class="footer__col">
+                <h3 class="footer__title">Контакты</h3>
+                <ul class="footer__contacts">
+                    <li class="footer__contact-item">
+                        <svg class="footer__icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                        <a href="tel:+73432000000">+7 (343) 200-00-00</a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <svg class="footer__icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        <a href="mailto:hello@aurora-dent.ru">hello@aurora-dent.ru</a>
+                    </li>
+                    <li class="footer__contact-item">
+                        <svg class="footer__icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span>ул. Сияния, 67</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h3 class="footer__title">Часы работы</h3>
+                <ul class="footer__schedule">
+                    <li>Пн–Пт: 08:00 – 21:00</li>
+                    <li>Сб: 09:00 – 18:00</li>
+                    <li>Вс: выходной</li>
+                </ul>
+                <div class="footer__socials">
+                    <a href="#" class="footer__social-link" aria-label="Telegram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.41-.88.03-.24.37-.49 1.02-.74 3.98-1.73 6.63-2.87 7.95-3.42 3.78-1.57 4.57-1.84 5.08-1.85.11 0 .37.03.54.17.14.12.18.28.2.45.01.14.01.28 0 .45z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="VK">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 16.842h-1.934c-.526 0-.687-.417-1.628-1.362-.82-.79-1.182-.896-1.39-.896-.304 0-.39.089-.39.524v1.103c0 .371-.118.593-1.096.593-1.61 0-3.383-.977-4.636-2.797C6.18 11.59 5.024 8.63 5.024 8.63c-.133-.368.01-.564.422-.564h1.934c.316 0 .434.147.553.497.603 1.766 1.61 3.305 2.026 3.305.158 0 .227-.07.227-.506V9.616c-.05-.883-.514-1.143-1.356-1.21-.261-.014.166-.512.713-.728.82-.324 2.268-.35 3.723-.04.423.09.498.297.498.972v2.405c0 .308.133.42.22.42.158 0 .296-.091.594-.393.904-.99 1.55-2.538 1.55-2.538.084-.204.24-.323.556-.323h1.934c.396 0 .54.204.438.505-.182.85-1.973 3.358-1.973 3.358-.156.256-.216.37 0 .654.156.22.67.655 1.01 1.059.654.775 1.148 1.428 1.278 1.859.11.334-.08.627-.505.627z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h3 class="footer__title">Быстрая запись</h3>
+                <form class="footer__form" id="footerForm">
+                    <label for="footerName" class="sr-only">Ваше имя</label>
+                    <input type="text" id="footerName" class="footer__input" placeholder="Ваше имя" required>
+                    <label for="footerPhone" class="sr-only">Телефон</label>
+                    <input type="tel" id="footerPhone" class="footer__input" placeholder="Телефон" required>
+                    <button type="submit" class="footer__btn btn_light">Записаться</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer__bottom-bar">
+            <span class="footer__copyright">© 2026 Aurora Dentistry</span>
+            <a href="https://github.com/issedafuu" target="_blank" rel="noopener noreferrer" class="footer__github-link"
+                aria-label="GitHub профиль">
+                <svg class="footer__github-icon" width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                    <path
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+                <span>issedafuu</span>
+            </a>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal__close" id="closeModalBtn" aria-label="Закрыть окно">&times;</button>
+            <h3 class="modal__title" id="modalTitle">Запись на приём</h3>
+            <form class="modal__form" id="modalForm">
+                <label for="modalName" class="sr-only">Ваше имя</label>
+                <input type="text" id="modalName" class="footer__input" placeholder="Ваше имя" required>
+                <label for="modalPhone" class="sr-only">Телефон</label>
+                <input type="tel" id="modalPhone" class="footer__input" placeholder="Телефон" required>
+                <button type="submit" class="btn_def">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="priceModalOverlay">
+        <div class="modal price-modal" role="dialog" aria-modal="true" aria-labelledby="priceModalTitle">
+            <button class="modal__close" id="closePriceModalBtn" aria-label="Закрыть окно">&times;</button>
+            <h3 class="modal__title" id="priceModalTitle">Стоимость услуг</h3>
+            <ul class="price-list">
+                <li class="price-list__item">
+                    <span class="price-list__service">Профессиональная чистка AirFlow</span>
+                    <span class="price-list__cost">от 3 500 ₽</span>
+                </li>
+                <li class="price-list__item">
+                    <span class="price-list__service">Безопасное отбеливание</span>
+                    <span class="price-list__cost">от 8 900 ₽</span>
+                </li>
+                <li class="price-list__item">
+                    <span class="price-list__service">Лечение кариеса</span>
+                    <span class="price-list__cost">от 2 200 ₽</span>
+                </li>
+                <li class="price-list__item">
+                    <span class="price-list__service">Детский приём</span>
+                    <span class="price-list__cost">от 1 800 ₽</span>
+                </li>
+            </ul>
+            <p class="price-modal__note">Точная стоимость определяется после осмотра. Скидка 10% на первое посещение!
+            </p>
+        </div>
+    </div>
+
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>

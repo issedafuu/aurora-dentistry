@@ -1,0 +1,39 @@
+:root {
+    --primary-blue: #367CB6;
+    --decorate-blue: #319FE1;
+    --primary-gray: #C5CBCD;
+    --text-color-on-light: #1a1a1a;
+    --text-color-on-dark: #ffffff;
+    --btn-gradient-start: var(--primary-blue);
+    --btn-gradient-mid: #7bb3d9;
+    --btn-gradient-end: #b5d8ef;
+
+    --bg-light-1: #eef2f5;
+    --bg-light-2: #e5e9ec;
+    --bg-light-3: #dce0e4;
+    --bg-light-4: #d3d8dd;
+
+    --font-primary: 'Manrope', sans-serif;
+    --font-logo: 'Alegreya Sans', sans-serif;
+
+    --container-max: 1200px;
+    --border-radius: 24px;
+    --shadow-soft: 0 8px 30px rgba(54, 124, 182, 0.12);
+    --transition: 0.25s ease;
+
+    --text-base: 18px;
+    --line-height-base: 1.6;
+
+    --font-size-logo: clamp(22px, 3vw, 36px);
+    --font-size-nav: clamp(14px, 1.2vw, 18px);
+    --font-size-btn: clamp(14px, 1.2vw, 18px);
+    --font-size-text: clamp(14px, 1.2vw, 18px);
+    --section-name-font-size: clamp(2rem, -0.0313rem + 6.5vw, 3.625rem);
+    --section-name-font-weight: 700;
+
+    --content-padding: clamp(40px, 6vw, 100px);
+    --sides-padding: clamp(20px, 5vw, 80px);
+
+    --border-gradient-1: linear-gradient(135deg, var(--primary-blue), rgba(54,124,182,0.2), var(--decorate-blue), rgba(49,159,225,0.1), var(--primary-blue));
+    --border-gradient-2: linear-gradient(225deg, var(--decorate-blue), rgba(49,159,225,0.15), var(--primary-blue), rgba(54,124,182,0.2), var(--decorate-blue));
+}
