@@ -1,5 +1,8 @@
-// Preloader
+// ========================================
+// 1. PRELOADER
+// ========================================
 const preloader = document.getElementById('preloader');
+
 window.addEventListener('load', () => {
     if (preloader) {
         preloader.classList.add('hidden');
@@ -7,136 +10,213 @@ window.addEventListener('load', () => {
     }
 });
 
+// ========================================
+// 2. DOMContentLoaded — основная логика
+// ========================================
 document.addEventListener('DOMContentLoaded', () => {
+    // ---------- Мобильное меню ----------
     const burger = document.getElementById('burgerBtn');
     const nav = document.getElementById('mainNav');
 
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.classList.toggle('active');
-    });
-
-    document.querySelectorAll('.header__nav-list-item a').forEach(link => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('active');
-            burger.classList.remove('active');
+    if (burger && nav) {
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            burger.classList.toggle('active');
         });
-    });
 
+        document.querySelectorAll('.header__nav-list-item a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
+    }
+
+    // ---------- Плавный скролл по якорям ----------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
+            if (!targetId) return;
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
     });
 
+    // ---------- Модальное окно "Записаться" ----------
     const modalOverlay = document.getElementById('modalOverlay');
     const openModalBtn = document.getElementById('openModalBtn');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const modalForm = document.getElementById('modalForm');
     const heroModalBtn = document.getElementById('heroModalBtn');
 
-    function openModal() { modalOverlay.classList.add('active'); }
-    function closeModal() { modalOverlay.classList.remove('active'); }
+    function openModal() {
+        modalOverlay.classList.add('active');
+    }
+    function closeModal() {
+        modalOverlay.classList.remove('active');
+    }
 
-    openModalBtn.addEventListener('click', openModal);
+    if (openModalBtn) openModalBtn.addEventListener('click', openModal);
     if (heroModalBtn) heroModalBtn.addEventListener('click', openModal);
-    closeModalBtn.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) closeModal();
-    });
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
-modalForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('modalName').value.trim();
-    const phone = document.getElementById('modalPhone').value.trim();
-    
-    if (name && phone) {
-        showSuccessMessage(`Спасибо, ${name}! Мы свяжемся с вами в ближайшее время.`);
-        modalForm.reset();
-        closeModal();
-    } else {
-        alert('Пожалуйста, заполните все поля.');
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeModal();
+        });
     }
-});
-
-footerForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('footerName').value.trim();
-    const phone = document.getElementById('footerPhone').value.trim();
-    
-    if (name && phone) {
-        showSuccessMessage(`Спасибо, ${name}! Мы скоро позвоним на ${phone}.`);
-        footerForm.reset();
-    } else {
-        alert('Пожалуйста, заполните все поля.');
-    }
-});
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+        if (e.key === 'Escape' && modalOverlay?.classList.contains('active')) {
             closeModal();
         }
     });
 
+    // ---------- Модальное окно "Стоимость" ----------
     const priceModalOverlay = document.getElementById('priceModalOverlay');
     const priceBtn = document.getElementById('priceBtn');
     const closePriceModalBtn = document.getElementById('closePriceModalBtn');
 
-    function openPriceModal() { priceModalOverlay.classList.add('active'); }
-    function closePriceModal() { priceModalOverlay.classList.remove('active'); }
+    function openPriceModal() {
+        priceModalOverlay.classList.add('active');
+    }
+    function closePriceModal() {
+        priceModalOverlay.classList.remove('active');
+    }
 
-    priceBtn.addEventListener('click', openPriceModal);
-    closePriceModalBtn.addEventListener('click', closePriceModal);
-    priceModalOverlay.addEventListener('click', (e) => {
-        if (e.target === priceModalOverlay) closePriceModal();
-    });
+    if (priceBtn) priceBtn.addEventListener('click', openPriceModal);
+    if (closePriceModalBtn) closePriceModalBtn.addEventListener('click', closePriceModal);
+
+    if (priceModalOverlay) {
+        priceModalOverlay.addEventListener('click', (e) => {
+            if (e.target === priceModalOverlay) closePriceModal();
+        });
+    }
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && priceModalOverlay.classList.contains('active')) {
+        if (e.key === 'Escape' && priceModalOverlay?.classList.contains('active')) {
             closePriceModal();
         }
     });
 
-    document.querySelector('.hero__info-container')?.classList.add('animate', 'fadeInLeft');
-    document.querySelector('.hero__image-wrapper')?.classList.add('animate', 'fadeInRight');
+    // ---------- Обработка форм ----------
+    const footerForm = document.getElementById('footerForm');
 
-    document.querySelectorAll('.card').forEach((card, index) => {
-        card.classList.add('animate', 'scaleIn', `delay-${(index % 5) + 1}`);
-    });
+    if (modalForm) {
+        modalForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('modalName').value.trim();
+            const phone = document.getElementById('modalPhone').value.trim();
 
-    document.querySelectorAll('.why__text-content').forEach((item, index) => {
-        item.classList.add('animate', 'fadeInUp', `delay-${(index % 5) + 1}`);
-    });
+            if (name && phone) {
+                showSuccessMessage(`Спасибо, ${name}! Мы свяжемся с вами в ближайшее время.`);
+                modalForm.reset();
+                closeModal();
+            } else {
+                alert('Пожалуйста, заполните все поля.');
+            }
+        });
+    }
 
-    document.querySelector('.why__images-container')?.classList.add('animate', 'fadeInLeft');
+    if (footerForm) {
+        footerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('footerName').value.trim();
+            const phone = document.getElementById('footerPhone').value.trim();
 
-    document.querySelectorAll('.testimonial-card').forEach((card, index) => {
-        card.classList.add('animate', 'scaleIn', `delay-${(index % 5) + 1}`);
-    });
+            if (name && phone) {
+                showSuccessMessage(`Спасибо, ${name}! Мы скоро позвоним на ${phone}.`);
+                footerForm.reset();
+            } else {
+                alert('Пожалуйста, заполните все поля.');
+            }
+        });
+    }
 
-    document.querySelectorAll('.footer__col').forEach((col, index) => {
-        col.classList.add('animate', 'fadeInUp', `delay-${(index % 3) + 1}`);
-    });
-
+    // ---------- Intersection Observer для анимации секций ----------
     const animatedElements = document.querySelectorAll('.animate');
     if (animatedElements.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.2 });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
 
         animatedElements.forEach(el => observer.observe(el));
     }
+
+    // ---------- Кнопка "Наверх" ----------
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // ---------- Параллакс для Hero ----------
+    const heroImageWrapper = document.querySelector('.hero__image-wrapper');
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking && heroImageWrapper) {
+            window.requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                heroImageWrapper.style.transform = `translateY(${scrollY * 0.04}px)`;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // ---------- Ripple-эффект на кнопках ----------
+    document.querySelectorAll('.btn_def, .btn_light, .footer__btn, .ghost-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const oldRipple = this.querySelector('.ripple');
+            if (oldRipple) oldRipple.remove();
+
+            const rect = this.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            this.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
 });
 
+// ========================================
+// 3. УТИЛИТА: показ сообщения об успехе
+// ========================================
 function showSuccessMessage(text) {
     const message = document.createElement('div');
     message.style.cssText = `
@@ -154,6 +234,7 @@ function showSuccessMessage(text) {
         text-align: center;
         min-width: 280px;
         animation: fadeInUp 0.4s ease;
+        font-family: var(--font-primary);
     `;
     message.textContent = text;
     document.body.appendChild(message);

@@ -1,8 +1,51 @@
+/* ========== ОСНОВНЫЕ АНИМАЦИИ ========== */
 
 @keyframes twinkle {
     0%, 100% { opacity: 0.5; transform: scale(1); }
     50% { opacity: 0.8; transform: scale(1.2); }
 }
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.35); opacity: .65; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ========== АНИМАЦИИ BLOB-ЭФФЕКТОВ ========== */
 
 @keyframes blobMove1 {
     0% { transform: translate(0, 0) scale(1); }
@@ -37,39 +80,25 @@
     100% { transform: translate(5vw, 8vh) scale(0.85); }
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+/* ========== АНИМАЦИЯ ПОЯВЛЕНИЯ ИЗОБРАЖЕНИЙ ========== */
 
-@keyframes modalSlideIn {
-    from { opacity: 0; transform: translateY(20px) scale(0.97); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInLeft {
-    from { opacity: 0; transform: translateX(-30px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(30px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.9); }
+@keyframes imgFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
 }
 
+/* ========== RIPPLE-ЭФФЕКТ ========== */
+
+@keyframes rippleAnim {
+    to { transform: scale(4); opacity: 0; }
+}
+
+/* ========== КЛАССЫ ДЛЯ АНИМАЦИИ (INTERSECTION OBSERVER) ========== */
+
 .animate {
     opacity: 0;
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .animate.in-view {
@@ -77,10 +106,72 @@
     transform: none;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
+/* ========== ПЛАВНОЕ ПОЯВЛЕНИЕ ИЗОБРАЖЕНИЙ ========== */
+
+.fade-image {
+    opacity: 0;
+    animation: imgFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
+.fade-image.delay-1 { animation-delay: 0.1s; }
+.fade-image.delay-2 { animation-delay: 0.2s; }
+.fade-image.delay-3 { animation-delay: 0.3s; }
+.fade-image.delay-4 { animation-delay: 0.4s; }
+.fade-image.delay-5 { animation-delay: 0.5s; }
+
+/* ========== RIPPLE-ЭФФЕКТ (элемент) ========== */
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    animation: rippleAnim 0.6s ease-out;
+    pointer-events: none;
+}
+
+/* ========== КНОПКА "НАВЕРХ" ========== */
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-blue), var(--decorate-blue));
+    color: #fff;
+    border: none;
+    box-shadow: 0 6px 25px rgba(54, 124, 182, 0.4);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.9);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.scroll-top:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 35px rgba(54, 124, 182, 0.5);
+}
+
+.scroll-top:active {
+    transform: scale(0.95);
+}
+
+/* ========== ЗАДЕРЖКИ ДЛЯ АНИМАЦИЙ ========== */
 
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
@@ -88,21 +179,27 @@
 .delay-4 { transition-delay: 0.4s; }
 .delay-5 { transition-delay: 0.5s; }
 
+/* ========== АДАПТИВНОСТЬ АНИМАЦИЙ ========== */
+
 @media (max-width: 768px) {
     .animate {
-        transition-duration: 0.4s;
+        transition-duration: 0.5s;
     }
     .delay-1, .delay-2, .delay-3, .delay-4, .delay-5 {
         transition-delay: 0.05s;
     }
 }
 
+/* ========== ОТКЛЮЧЕНИЕ АНИМАЦИЙ ПРИ ПРЕДПОЧТЕНИИ REDUCED MOTION ========== */
+
 @media (prefers-reduced-motion: reduce) {
-    .animate,
-    .animate.in-view {
+    .animate, .animate.in-view, .fade-image, .scroll-top {
         transition: none;
+        animation: none;
         opacity: 1;
         transform: none;
-        animation: none;
+    }
+    .scroll-top {
+        display: none;
     }
 }
